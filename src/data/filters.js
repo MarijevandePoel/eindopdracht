@@ -18,6 +18,13 @@ export function getStudentNames() {
 	return student;
 }
 
+export function getStudent(studentName) {
+	const student = StudentData.valueOf().filter(
+		(student) => student.first_name === studentName
+	);
+	return student[0];
+}
+
 //evaluations
 //array with all Courses
 

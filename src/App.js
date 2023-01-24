@@ -6,7 +6,6 @@ import Home from "./Components/Home";
 import "./styles/App.css";
 import NavBar from "./Components/NavBar";
 import StudentProfile from "./Components/StudentProfile";
-import StudentBar from "./Components/StudentBar";
 
 function App() {
 	return (
@@ -17,9 +16,7 @@ function App() {
 
 				<Route index element={<Home />} />
 
-				<Route path="Students" element={<StudentBar />}>
-					<Route path="StudentProfile" element={<StudentProfile />} />
-				</Route>
+				<Route path="studentprofile/:id" element={<StudentProfile />} />
 			</Routes>
 
 			<Footer />
