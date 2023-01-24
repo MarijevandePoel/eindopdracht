@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { allData, allStudents } from "./sliceAndDiceSlice";
+import { allCourses } from "./sliceAndDiceSlice";
 import { profile } from "./studentSlice";
 
 export const store = configureStore({
 	reducer: {
-		data: allData,
-		// students: allStudents,
+		data: allCourses,
+		//students: allStudents,
 		profile: profile,
 	},
 });

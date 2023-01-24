@@ -7,31 +7,20 @@ const sliceAndDiceSlice = createSlice({
 	// maak je van data een object dan kan je via useSelector de data nesten.
 
 	reducers: {
-		allData: (state, action) => {
-			console.log(state);
-		},
-		allStudents: (state, action) => {
-			let allStudents = [...new Set(state.name)];
-			console.log(allStudents);
-		},
-		averageCourseNice: (state, action) => {
-			let nice = [state.nice];
-			const sum = nice.reduce((a, b) => a + b, 0);
-			const avgNice = sum / allStudents.length || 0;
-			return avgNice;
-		},
-		averageCourseDiff: (state, action) => {
-			let difficult = [state.difficult];
-			const sum = difficult.reduce((a, b) => a + b, 0);
-			const avgDiff = sum / allStudents.length || 0;
-			return avgDiff;
+		allCourses: (state, action) => {
+			let allCourses = state;
+			let uniqueCourse = [...new Set(allCourses)];
+			return uniqueCourse;
 		},
 
-		// topTenCourseNice: (state, action) => {
-		// 	let course = [state.assignment];
-		// },
+		assignementToggleNice: (state, action) => {
+			let assignment = state;
+			let nice = action.payload;
+		},
+		assignementToggleDifficult: (state, action) => {},
 	},
 });
 
-export const { allData, allStudents } = sliceAndDiceSlice.actions;
+export const { allCourses, assignementToggleNice, assignementToggleDifficult } =
+	sliceAndDiceSlice.actions;
 export default sliceAndDiceSlice.reducer;
