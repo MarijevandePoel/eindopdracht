@@ -5,10 +5,11 @@ import data from "./wincmockdata.json";
 function getAllStudentData() {
 	return StudentData;
 }
-
+let wincData = data;
 //get all data
 export function getAllData() {
-	return data;
+	const data = wincData.map;
+	return data[0];
 }
 
 //names need to navigate to StudentProfile
@@ -66,4 +67,26 @@ export function averageCourse() {
 	}
 	return average;
 }
+
+const newAverageArraytoSort = averageCourse();
+
+export function sortNice(nice) {
+	const newArray = newAverageArraytoSort.sort((a, b) => b.nice - a.nice);
+	return newArray;
+}
+
+export function sortDiff() {
+	const newArray = newAverageArraytoSort.sort(
+		(a, b) => b.difficult - a.difficult
+	);
+	return newArray;
+}
+
+//first 25 assignments for homepage
+export function sort25() {
+	const first25 = newAverageArraytoSort.slice(0, 25);
+
+	return first25;
+}
+
 export default getAllStudentData;

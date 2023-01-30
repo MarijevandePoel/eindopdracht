@@ -1,0 +1,10 @@
+.studentBar{
+    margin: 5px;
+    align-items: center;
+
+}
+.studentBar a {
+    padding: 5px;
+    text-decoration: none;
+    color:blue
+}

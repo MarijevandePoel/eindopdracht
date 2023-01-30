@@ -1,0 +1,20 @@
+.profile{
+    display: flex;
+    background-color: #a3f0fa;
+   
+
+}
+.profile li{
+    
+     list-style: none;
+     font-size: 20px;
+     padding-right: 10px;
+}
+.avatar {
+    background-color: #6cc8d4;
+    padding: 10 px;
+    
+}
+.avatar img {
+    align-items: center;
+}

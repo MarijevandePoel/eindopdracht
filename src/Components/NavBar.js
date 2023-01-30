@@ -9,11 +9,6 @@ function NavBar() {
 				<Link className="navBarLink" to="/">
 					Home
 				</Link>
-
-				<Link className="navBarLink" to="/StudentProfile">
-					{" "}
-					Students{" "}
-				</Link>
 			</nav>
 			<Outlet />
 		</>

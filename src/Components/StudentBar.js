@@ -3,6 +3,7 @@ import React from "react";
 import { Outlet, Link } from "react-router-dom";
 
 import getStudentNames from "../data/filters";
+import "../styles/studentbar.css";
 
 function StudentBar() {
 	const allStudents = getStudentNames();
@@ -13,7 +14,7 @@ function StudentBar() {
 				{allStudents.map((student) => (
 					<Link
 						className="studentLink"
-						to={`/StudentProfile/${student.first_name} `}
+						to={`/studentprofile/${student.first_name} `}
 						key={student.id}
 					>
 						{student.first_name}
