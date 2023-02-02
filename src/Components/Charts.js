@@ -17,7 +17,7 @@ export default function Chart() {
 	const [chart, setChart] = useState("");
 	const [title, setTitle] = useState("");
 	useEffect(() => {
-		setChart(chartdata.nice, chartdata.difficult);
+		setChart(chartdata);
 	}, []);
 	const chartdata = sort25();
 
@@ -40,7 +40,7 @@ export default function Chart() {
 			<button
 				className="button"
 				onClick={() => {
-					setChart(sortNice(chartdata.nice));
+					setChart(sortNice());
 					setTitle("with the highest nice score");
 				}}
 			>
@@ -49,7 +49,7 @@ export default function Chart() {
 			<button
 				className="button"
 				onClick={() => {
-					setChart(sortDiff);
+					setChart(sortDiff());
 					setTitle("with the highest difficult score");
 				}}
 			>
@@ -68,7 +68,7 @@ export default function Chart() {
 				}}
 			>
 				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis dataKey="assingment" fontSize={8} />
+				<XAxis dataKey="assignment" fontSize={8} />
 				<YAxis type="number" domain={[0, 5]} />
 				<Tooltip />
 				<Legend />

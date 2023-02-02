@@ -1,22 +1,18 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { getStudent } from "../data/filters";
+import { getStudent, groupedBy } from "../data/filters";
 import "../styles/studentProfile.css";
-import { useState, useEffect } from "react";
-//import StudentChart from "./StudentChart";
+//import { useState, useEffect } from "react";
+import StudentChart from "./StudentChart";
 
 function StudentProfile() {
 	const { id } = useParams();
 
-	const [student, setStudent] = useState("");
+	const student = getStudent(id);
 
-	useEffect(() => {
-		setStudent(getStudent(id));
-	}, [id]);
-
-	useEffect(() => {
-		console.log(student);
-	}, [student]);
+	// useEffect(() => {
+	// 	console.log(student);
+	// }, [student]);
 
 	return (
 		<>
@@ -38,7 +34,7 @@ function StudentProfile() {
 					<img src={student.avatar} width="85px" alt="Profile"></img>{" "}
 				</div>
 			</div>
-			{/* <StudentChart /> */}
+			<StudentChart {...student} />
 		</>
 	);
 }

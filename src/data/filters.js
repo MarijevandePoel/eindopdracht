@@ -70,11 +70,6 @@ export function averageCourse() {
 
 const newAverageArraytoSort = averageCourse();
 
-export function sortNice(nice) {
-	const newArray = newAverageArraytoSort.sort((a, b) => b.nice - a.nice);
-	return newArray;
-}
-
 export function sortDiff() {
 	const newArray = newAverageArraytoSort.sort(
 		(a, b) => b.difficult - a.difficult
@@ -87,6 +82,20 @@ export function sort25() {
 	const first25 = newAverageArraytoSort.slice(0, 25);
 
 	return first25;
+}
+
+export function groupedBy(objectArray, property) {
+	return objectArray.reduce((acc, obj) => {
+		const key = obj[property];
+		const curGroup = acc[key] ?? [];
+		return { ...acc, [key]: [...curGroup, obj] };
+	}, {});
+}
+
+export function sortNice() {
+	const newArray = newAverageArraytoSort.sort((a, b) => b.nice - a.nice);
+
+	return newArray;
 }
 
 export default getAllStudentData;

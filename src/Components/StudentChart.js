@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getAllData } from "../data/filters";
+import data from "../data/wincmockdata.json";
+import { getAllData, groupedBy, sortNice } from "../data/filters";
 import {
 	BarChart,
 	Bar,
@@ -11,20 +12,19 @@ import {
 	Legend,
 } from "recharts";
 
-export default function StudentChart() {
-	const [student, setStudent] = useState("");
-	const [title, setTitle] = useState("");
-	const chartdata = getAllData;
-	useEffect(() => {
-		setTitle(setStudent(student.name));
-	}, [student.name]);
+let wincData = data;
 
+export default function StudentChart({ name }) {
+	const chartdata = groupedBy(wincData, "name");
+	useEffect(() => console.log(chartdata));
+	useEffect(() => console.log(sortNice()));
 	return (
 		<div>
 			<div>
 				<h2>
-					Chart of Student <span>{title}</span>
+					Chart of Student <span>{name}</span>
 				</h2>
+				<button>datalog</button>
 			</div>
 
 			<div></div>
@@ -40,7 +40,7 @@ export default function StudentChart() {
 				}}
 			>
 				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis dataKey="assingment" fontSize={8} />
+				<XAxis dataKey="assignment" fontSize={8} />
 				<YAxis type="number" domain={[0, 5]} />
 				<Tooltip />
 				<Legend />
