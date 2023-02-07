@@ -14,12 +14,12 @@ import {
 import { sort25, sortDiff, sortNice } from "../data/filters";
 import "../styles/charts.css";
 export default function Chart() {
-	const [chart, setChart] = useState([""]);
+	const [chart, setChart] = useState(sort25);
 	const [title, setTitle] = useState("");
-	let chartdata = sort25();
+
 	useEffect(() => {
-		setChart(chartdata);
-	}, [chartdata]);
+		setChart(chart);
+	}, [chart]);
 
 	return (
 		<div className="chartBasis">
@@ -33,7 +33,7 @@ export default function Chart() {
 			<BarChart
 				width={1200}
 				height={500}
-				data={chartdata}
+				data={chart}
 				margin={{
 					top: 5,
 					right: 30,
@@ -63,6 +63,7 @@ export default function Chart() {
 				className="button"
 				onClick={() => {
 					console.log(sortDiff());
+
 					setChart(sortDiff());
 					setTitle("with the highest difficult score");
 				}}

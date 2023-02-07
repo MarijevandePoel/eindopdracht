@@ -71,14 +71,21 @@ export function averageCourse() {
 const newAverageArray = averageCourse();
 
 export function sortDiff() {
-	const newArray = newAverageArray.sort((a, b) => b.difficult - a.difficult);
-	return newArray;
+	const newArray = [];
+	const sortingDiff = newAverageArray.sort((a, b) => b.difficult - a.difficult);
+	for (let i = 0; i < sortingDiff.length; i++) {
+		delete sortingDiff[i].nice;
+
+		newArray.push(sortingDiff[i]);
+		console.log(sortingDiff);
+		return newArray;
+	}
 }
 
 export function sortNice() {
 	const newArray = newAverageArray.sort((a, b) => b.nice - a.nice);
 
-	return newArray;
+	return newArray();
 }
 //first 25 assignments for homepage
 export function sort25() {
