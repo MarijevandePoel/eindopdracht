@@ -12,27 +12,11 @@ export function getAllData() {
 	return data;
 }
 
-//names need to navigate to StudentProfile
-
-// export function getStudentNames() {
-// 	let student = StudentData.map((student) => student.first_name);
-// 	return student;
-// }
-
 export function getStudent(studentName) {
 	const student = StudentData.valueOf().filter(
 		(student) => student.first_name === studentName
 	);
 	return student[0];
-}
-
-//evaluations
-//array with all Courses
-
-export function getAllCourses() {
-	let allCourses = data.map((courses) => courses.assignment);
-	let uniqueCourse = [...new Set(allCourses)];
-	return uniqueCourse;
 }
 
 export function averageCourse() {
@@ -42,6 +26,7 @@ export function averageCourse() {
 
 	//making a new array
 	let average = [];
+	//making a new object
 	for (let course of unique) {
 		let sumNice = 0;
 		let niceScore = 0;
@@ -58,6 +43,7 @@ export function averageCourse() {
 			niceScore++;
 			diffScore++;
 		}
+		//storing the results in an object
 		const resultObject = {
 			assignment: course,
 			nice: sumNice / niceScore,
@@ -68,24 +54,35 @@ export function averageCourse() {
 	return average;
 }
 
-const newAverageArray = averageCourse();
+const newAverageArrayNice = averageCourse();
+const newAverageArrayDiff = averageCourse();
 
+// ik weet dat ik beide sorteerfucnties in 1 fucntie had kunnen doen, maar ik kreeg dat niet goed voor elkaar.
 export function sortDiff() {
 	const newArray = [];
-	const sortingDiff = newAverageArray.sort((a, b) => b.difficult - a.difficult);
+	const sortingDiff = newAverageArrayDiff.sort(
+		(a, b) => b.difficult - a.difficult
+	);
+	console.log(sortingDiff);
 	for (let i = 0; i < sortingDiff.length; i++) {
 		delete sortingDiff[i].nice;
 
 		newArray.push(sortingDiff[i]);
-		console.log(sortingDiff);
-		return newArray;
 	}
+	console.log(newArray);
+	return newArray;
 }
 
 export function sortNice() {
-	const newArray = newAverageArray.sort((a, b) => b.nice - a.nice);
-
-	return newArray();
+	const newArray = [];
+	const sortingNice = newAverageArrayNice.sort((a, b) => b.nice - a.nice);
+	console.log(sortingNice);
+	for (let i = 0; i < sortingNice.length; i++) {
+		delete sortingNice[i].difficult;
+		newArray.push(sortingNice[i]);
+	}
+	console.log(newArray);
+	return newArray;
 }
 //first 25 assignments for homepage
 export function sort25() {
@@ -93,6 +90,8 @@ export function sort25() {
 
 	return first25;
 }
+
+// functie voor de studentencharts
 
 export function groupedBy(objectArray, property) {
 	return objectArray.reduce((acc, obj) => {

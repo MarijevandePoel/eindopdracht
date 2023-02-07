@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
-import Footer from "./Components/Footer";
 import Home from "./Components/Home";
 import "./styles/App.css";
 import NavBar from "./Components/NavBar";
@@ -18,8 +17,6 @@ function App() {
 
 				<Route path="studentprofile/:id" element={<StudentProfile />} />
 			</Routes>
-
-			<Footer />
 		</BrowserRouter>
 	);
 }

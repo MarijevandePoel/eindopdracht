@@ -1,6 +1,5 @@
 import React from "react";
-//import { sort15, sortDiff, sortNice } from "../data/filters";
-//import { useState, useEffect } from "react";
+import Footer from "./Footer";
 
 import Chart from "./Charts";
 
@@ -10,12 +9,14 @@ import "../styles/home.css";
 const Home = () => {
 	return (
 		<div className="home">
-			<h2>Click on a student to get their chart.</h2>
+			<h2 className="homeTitle">Click on a student to get their chart.</h2>
 			<StudentBar />
 
 			<div className="barChartbasis">
 				<Chart />
 			</div>
+			<div className="space"></div>
+			<Footer />
 		</div>
 	);
 };

@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import {
 	BarChart,
 	Bar,
-	//Cell,
 	XAxis,
 	YAxis,
 	CartesianGrid,
@@ -23,7 +22,7 @@ export default function Chart() {
 
 	return (
 		<div className="chartBasis">
-			<div>
+			<div className="chartTitle">
 				<h2>
 					Chart for all Students and assignments <span>{title}</span>
 				</h2>
@@ -49,27 +48,42 @@ export default function Chart() {
 				<Tooltip />
 				<Legend />
 			</BarChart>
-			<button
-				className="button"
-				onClick={() => {
-					console.log(sortNice());
-					setChart(sortNice());
-					setTitle("with the highest nice score");
-				}}
-			>
-				Nice score
-			</button>
-			<button
-				className="button"
-				onClick={() => {
-					console.log(sortDiff());
+			<div className="buttonContainer">
+				<button
+					className="button"
+					onClick={(e) => {
+						e.preventDefault();
 
-					setChart(sortDiff());
-					setTitle("with the highest difficult score");
-				}}
-			>
-				Difficult score
-			</button>
+						setChart(sortNice());
+						setTitle("with the highest nice score");
+					}}
+				>
+					Nice score
+				</button>
+				<button
+					className="button"
+					onClick={(e) => {
+						e.preventDefault();
+
+						setChart(sortDiff());
+						setTitle("with the highest difficult score");
+					}}
+				>
+					Difficult score
+				</button>
+				<button
+					className="button"
+					onClick={(e) => {
+						e.preventDefault();
+
+						setChart(sort25());
+						setTitle("the first 25 courses");
+					}}
+				>
+					first 25
+				</button>
+			</div>
+			<div></div>
 		</div>
 	);
 }

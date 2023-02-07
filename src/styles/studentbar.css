@@ -1,11 +1,17 @@
 .studentBar{
    padding: 5px;
-    align-items: center;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   
 
 }
 .studentBar a {
     padding-left: 30px;
    
     text-decoration: none;
-    color:#1f65ce
+    color:#1f65ce;
+
+    font-weight: 500;
 }
+
