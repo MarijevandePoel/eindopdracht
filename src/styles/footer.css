@@ -1,0 +1,7 @@
+.footer{
+    color: whitesmoke;
+    background-image: linear-gradient(to right,#1f65ce, whitesmoke ) 
+}
+.footer h4{
+    padding: 5%;
+}

@@ -1,0 +1,10 @@
+.chartBasis{
+    
+    
+}
+ button {
+    padding: 5px;
+    background-image: linear-gradient(to right,#1f65ce, #6398e7 ) ;
+    border: none;
+    margin: 5px;
+}

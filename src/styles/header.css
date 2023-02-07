@@ -1,6 +1,7 @@
 #headerNav {
     color: whitesmoke;
-    background-color:#1f65ce ;
+    background-image: linear-gradient(to right,#1f65ce, whitesmoke )  ;
+    
 
 }
-h1 {margin: 0;}
+#headerNav h1 {margin: 0;}

@@ -1,20 +1,38 @@
+#root{
+    
+    align-items: center;
+   
+}
+h2{
+    margin: 10px;
+}
+
+
 .profile{
     display: flex;
-    background-color: #a3f0fa;
+    background-image: linear-gradient(to right,#1f65ce, whitesmoke );
+    padding: 20px
    
 
 }
 .profile li{
+    color: whitesmoke;
+    font-weight: 500;
     
      list-style: none;
      font-size: 20px;
      padding-right: 10px;
 }
 .avatar {
-    background-color: #6cc8d4;
-    padding: 10 px;
+    background: whitesmoke ;
+    padding: 20px;
+    border-radius: 50%;
     
 }
 .avatar img {
     align-items: center;
+}
+
+.studentChart {
+    padding-top: 20px;
 }

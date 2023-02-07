@@ -8,16 +8,16 @@ function getAllStudentData() {
 let wincData = data;
 //get all data
 export function getAllData() {
-	const data = wincData.map;
-	return data[0];
+	const data = wincData.map((data) => data);
+	return data;
 }
 
 //names need to navigate to StudentProfile
 
-export function getStudentNames() {
-	let student = StudentData.map((student) => student.first_name);
-	return student;
-}
+// export function getStudentNames() {
+// 	let student = StudentData.map((student) => student.first_name);
+// 	return student;
+// }
 
 export function getStudent(studentName) {
 	const student = StudentData.valueOf().filter(
@@ -47,19 +47,19 @@ export function averageCourse() {
 		let niceScore = 0;
 		let sumDiff = 0;
 		let diffScore = 0;
-		for (let object of dataSet.filter(
+		for (let newobject of dataSet.filter(
 			(item) => item.assignment === course,
 			data
 		)) {
-			if (object.nice) {
-				sumNice += object.nice;
+			if (newobject.nice) {
+				sumNice += newobject.nice;
 			}
-			sumDiff += object.difficult;
+			sumDiff += newobject.difficult;
 			niceScore++;
 			diffScore++;
 		}
 		const resultObject = {
-			assigment: course,
+			assignment: course,
 			nice: sumNice / niceScore,
 			difficult: sumDiff / diffScore,
 		};
@@ -68,18 +68,21 @@ export function averageCourse() {
 	return average;
 }
 
-const newAverageArraytoSort = averageCourse();
+const newAverageArray = averageCourse();
 
 export function sortDiff() {
-	const newArray = newAverageArraytoSort.sort(
-		(a, b) => b.difficult - a.difficult
-	);
+	const newArray = newAverageArray.sort((a, b) => b.difficult - a.difficult);
 	return newArray;
 }
 
+export function sortNice() {
+	const newArray = newAverageArray.sort((a, b) => b.nice - a.nice);
+
+	return newArray;
+}
 //first 25 assignments for homepage
 export function sort25() {
-	const first25 = newAverageArraytoSort.slice(0, 25);
+	const first25 = wincData.slice(0, 25);
 
 	return first25;
 }
@@ -90,12 +93,6 @@ export function groupedBy(objectArray, property) {
 		const curGroup = acc[key] ?? [];
 		return { ...acc, [key]: [...curGroup, obj] };
 	}, {});
-}
-
-export function sortNice() {
-	const newArray = newAverageArraytoSort.sort((a, b) => b.nice - a.nice);
-
-	return newArray;
 }
 
 export default getAllStudentData;

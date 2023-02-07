@@ -5,10 +5,11 @@ import React from "react";
 import Chart from "./Charts";
 
 import StudentBar from "./StudentBar";
+import "../styles/home.css";
 
 const Home = () => {
 	return (
-		<div>
+		<div className="home">
 			<h2>Click on a student to get their chart.</h2>
 			<StudentBar />
 

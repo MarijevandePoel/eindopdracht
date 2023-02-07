@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactDOM, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
 	BarChart,
 	Bar,
@@ -12,49 +12,23 @@ import {
 } from "recharts";
 
 import { sort25, sortDiff, sortNice } from "../data/filters";
-
+import "../styles/charts.css";
 export default function Chart() {
-	const [chart, setChart] = useState("");
+	const [chart, setChart] = useState([""]);
 	const [title, setTitle] = useState("");
+	let chartdata = sort25();
 	useEffect(() => {
 		setChart(chartdata);
-	}, []);
-	const chartdata = sort25();
+	}, [chartdata]);
 
 	return (
-		<div>
+		<div className="chartBasis">
 			<div>
 				<h2>
 					Chart for all Students and assignments <span>{title}</span>
 				</h2>
 			</div>
-			<button
-				className="button"
-				onClick={() => {
-					setChart(sort25());
-					setTitle("first Module");
-				}}
-			>
-				first Module
-			</button>
-			<button
-				className="button"
-				onClick={() => {
-					setChart(sortNice());
-					setTitle("with the highest nice score");
-				}}
-			>
-				Nice score
-			</button>
-			<button
-				className="button"
-				onClick={() => {
-					setChart(sortDiff());
-					setTitle("with the highest difficult score");
-				}}
-			>
-				Difficult score
-			</button>
+
 			<div></div>
 			<BarChart
 				width={1200}
@@ -67,14 +41,34 @@ export default function Chart() {
 					bottom: 5,
 				}}
 			>
-				<CartesianGrid strokeDasharray="3 3" />
-				<XAxis dataKey="assignment" fontSize={8} />
-				<YAxis type="number" domain={[0, 5]} />
-				<Tooltip />
-				<Legend />
 				<Bar dataKey="difficult" radius={8} barSize={20} fill="#8884d8" />
 				<Bar dataKey="nice" radius={8} barSize={20} fill="#82ca9d" />
+				<CartesianGrid strokeDasharray="3 3" />
+				<XAxis dataKey="assignment" fontSize={8} />
+				<YAxis type="number" domain={[0, 6]} />
+				<Tooltip />
+				<Legend />
 			</BarChart>
+			<button
+				className="button"
+				onClick={() => {
+					console.log(sortNice());
+					setChart(sortNice());
+					setTitle("with the highest nice score");
+				}}
+			>
+				Nice score
+			</button>
+			<button
+				className="button"
+				onClick={() => {
+					console.log(sortDiff());
+					setChart(sortDiff());
+					setTitle("with the highest difficult score");
+				}}
+			>
+				Difficult score
+			</button>
 		</div>
 	);
 }
