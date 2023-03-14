@@ -44,3 +44,21 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Reflection:
+
+This is the last assignment for the FED courses of Winc.
+I made a dashboard with mock data.
+
+
+What did I learn: 
+- how to make custom routes for the students.
+- slicing and dicing data and working with a module to make graphs.
+- comparing content of 2 json files to combine the right data.
+
+what could I have done better:
+- I was not consistent using camelCase or lowercase in the studentProfile. 
+- I could had used one function to exclude the nice or difficult for the chart. 
+
+
+
